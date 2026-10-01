@@ -1,0 +1,53 @@
+section.testimonials#testimonials(aria-labelledby="testimonials-title")
+  .container
+    .section-head.text-center.animate-on-scroll
+      p.section-eyebrow Reviews
+      h2.section-title#testimonials-title Our Testimonials
+      p.section-text Lorem ipsum dolor sit amet, consectetur adipisicing elit
+    .testimonials__track(data-carousel role="region" aria-roledescription="carousel" aria-label="Testimonials")
+      .testimonials__viewport#testimonials-viewport
+        .testimonials__list
+          article.testimonial-card.animate-on-scroll
+            .testimonial-card__quote(aria-hidden="true")
+              i.bi.bi-quote
+            blockquote
+              p “ I believe in lifelong learning and Houzing is a great place to find a home. I've learned a lot and recommend it to all my friends. ”
+            .testimonial-card__author
+              img(src="assets/img/agents/avatar-1.jpg" alt="")
+              div
+                cite Marvin McKinney
+                span Designer
+          article.testimonial-card.animate-on-scroll
+            .testimonial-card__quote(aria-hidden="true")
+              i.bi.bi-quote
+            blockquote
+              p “ Searching across cities was effortless. The filters and agent support helped us close faster than we expected. ”
+            .testimonial-card__author
+              img(src="assets/img/agents/avatar-2.jpg" alt="")
+              div
+                cite Theresa Webb
+                span Host
+          article.testimonial-card.animate-on-scroll
+            .testimonial-card__quote(aria-hidden="true")
+              i.bi.bi-quote
+            blockquote
+              p “ Clean listings, accurate photos, and transparent pricing. Houzing made renting in a new city feel simple. ”
+            .testimonial-card__author
+              img(src="assets/img/agents/avatar-3.jpg" alt="")
+              div
+                cite Robert Fox
+                span Reporter
+          article.testimonial-card.animate-on-scroll
+            .testimonial-card__quote(aria-hidden="true")
+              i.bi.bi-quote
+            blockquote
+              p “ From first tour to final paperwork, the experience felt modern and trustworthy. Highly recommended. ”
+            .testimonial-card__author
+              img(src="assets/img/agents/avatar-4.jpg" alt="")
+              div
+                cite Guy Hawkins
+                span Developer
+      button.testimonials__nav.testimonials__nav--prev(type="button" aria-label="Previous testimonials" aria-controls="testimonials-viewport" data-carousel-prev)
+        i.bi.bi-chevron-left(aria-hidden="true")
+      button.testimonials__nav.testimonials__nav--next(type="button" aria-label="Next testimonials" aria-controls="testimonials-viewport" data-carousel-next)
+        i.bi.bi-chevron-right(aria-hidden="true")

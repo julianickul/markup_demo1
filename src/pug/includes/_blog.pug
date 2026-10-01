@@ -1,0 +1,20 @@
+include _mixins
+
+-
+  var posts = [
+    { tag: 'FAMILY HOUSE', author: 'Robert Fox', date: '06 April, 2021', title: 'Redfin Ranks the Most Competitive Neighborhoods of 2021', excerpt: 'Semper sagittis facilisi praesent elementum purus faucibus faucibus non tempus.', image: 'assets/img/blog/blog-1.jpg' },
+    { tag: 'APARTMENT', author: 'Robert Fox', date: '06 April, 2021', title: 'Housing Trends Buyers Should Watch This Season', excerpt: 'Semper sagittis facilisi praesent elementum purus faucibus faucibus non tempus.', image: 'assets/img/blog/blog-2.jpg' },
+    { tag: 'APARTMENT', author: 'Robert Fox', date: '06 April, 2021', title: 'How to Tour Homes Virtually Without Missing Details', excerpt: 'Semper sagittis facilisi praesent elementum purus faucibus faucibus non tempus.', image: 'assets/img/blog/blog-3.jpg' },
+    { tag: 'RENTAL', author: 'Robert Fox', date: '06 April, 2021', title: 'Smart Tips for First-Time Renters in Big Cities', excerpt: 'Semper sagittis facilisi praesent elementum purus faucibus faucibus non tempus.', image: 'assets/img/blog/blog-4.jpg' }
+  ]
+
+section.blog#blog(aria-labelledby="blog-title")
+  .container
+    .section-head.text-center.animate-on-scroll
+      p.section-eyebrow Insights
+      h2.section-title#blog-title From Our Blog
+      p.section-text Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    .row.g-4
+      each post in posts
+        .col-md-6.col-xl-3
+          +blog-card(post)

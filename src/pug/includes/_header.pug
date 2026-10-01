@@ -1,0 +1,37 @@
+header.site-header#header
+  .container
+    .site-header__inner
+      a.site-header__brand(href="index.html" aria-label="Houzing home")
+        img(src="assets/svg/logo.svg" alt="" width="36" height="36")
+        span(aria-hidden="true") Houzing
+
+      button.site-header__burger(type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav")
+        span(aria-hidden="true")
+        span(aria-hidden="true")
+        span(aria-hidden="true")
+
+      nav.site-header__nav#main-nav(aria-label="Primary")
+        ul.site-header__menu
+          li
+            a.active(href="#hero" aria-current="page") Home
+          li
+            a(href="#featured") Listing
+          li
+            a(href="#rentals") Property
+          li
+            a(href="#agents") Pages
+          li
+            a(href="#blog") Blog
+          li
+            a(href="#cta") Contact
+        .site-header__actions.site-header__actions--drawer
+          a.site-header__login(href="#")
+            i.bi.bi-person(aria-hidden="true")
+            | Login
+          a.btn.btn-primary.site-header__cta(href="#") Sign up
+
+      .site-header__actions.site-header__actions--desktop
+        a.site-header__login(href="#")
+          i.bi.bi-person(aria-hidden="true")
+          | Login
+        a.btn.btn-primary.site-header__cta(href="#") Sign up

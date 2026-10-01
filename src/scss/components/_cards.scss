@@ -1,0 +1,457 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.property-card {
+  @include card-surface;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-float;
+
+    .property-card__img {
+      transform: scale(1.06);
+    }
+  }
+
+  &__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 11;
+    background: $color-bg-soft;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.55s ease;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 1;
+    padding: 0.25rem 0.55rem;
+    border-radius: $radius-sm;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #fff;
+    background: $color-dark;
+
+    &--featured {
+      background: $color-primary;
+      left: auto;
+      right: 12px;
+    }
+
+    &--status {
+      top: auto;
+      bottom: 12px;
+      background: rgba(13, 38, 59, 0.85);
+    }
+  }
+
+  &__meta {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+    gap: 0.65rem;
+    color: #fff;
+    font-size: 0.75rem;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  &__body {
+    padding: 1.15rem 1.15rem 0.85rem;
+    flex: 1;
+  }
+
+  &__title {
+    margin: 0 0 0.45rem;
+    font-size: 1rem;
+
+    a:hover,
+    a:focus-visible {
+      color: $color-primary;
+    }
+  }
+
+  &__address {
+    margin: 0 0 0.85rem;
+    color: $color-muted;
+    font-size: 0.8125rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.35rem;
+
+    i {
+      color: $color-primary;
+      margin-top: 0.15rem;
+    }
+  }
+
+  &__features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1rem;
+    color: $color-muted;
+    font-size: 0.8125rem;
+
+    li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    i {
+      color: $color-primary;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.15rem 1.15rem;
+    border-top: 1px solid $color-border;
+    margin-top: auto;
+  }
+
+  &__price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+
+    del {
+      color: $color-muted;
+      font-size: 0.8125rem;
+    }
+
+    strong {
+      color: $color-dark;
+      font-size: 1rem;
+    }
+  }
+
+  &__link {
+    color: $color-primary;
+    font-weight: 600;
+    font-size: 0.875rem;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+}
+
+.agent-card {
+  text-align: center;
+  padding: 0.5rem;
+
+  &__photo {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: $shadow-card;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+  }
+
+  &:hover .agent-card__photo img {
+    transform: scale(1.08);
+  }
+
+  &__name {
+    margin: 0 0 0.25rem;
+    font-size: 1.05rem;
+  }
+
+  &__role {
+    margin: 0 0 0.85rem;
+    color: $color-muted;
+  }
+
+  &__social {
+    display: flex;
+    justify-content: center;
+    gap: 0.65rem;
+
+    a {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid $color-border;
+      @include flex-center;
+      color: $color-muted;
+
+      &:hover,
+      &:focus-visible {
+        background: $color-primary;
+        border-color: $color-primary;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.city-card {
+  position: relative;
+  display: block;
+  border-radius: $radius-md;
+  overflow: hidden;
+  min-height: 280px;
+  box-shadow: $shadow-card;
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.55s ease;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.25rem;
+    background: linear-gradient(180deg, transparent 35%, rgba(13, 38, 59, 0.78) 100%);
+    color: #fff;
+  }
+
+  &__name {
+    margin: 0 0 0.25rem;
+    color: #fff;
+    font-size: 1.25rem;
+  }
+
+  &__count {
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+
+  &:hover .city-card__img,
+  &:focus-visible .city-card__img {
+    transform: scale(1.08);
+  }
+
+  &:focus-visible {
+    outline-offset: 4px;
+  }
+}
+
+.blog-card {
+  @include card-surface;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-float;
+  }
+
+  &__media {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.06);
+    }
+  }
+
+  &__tag {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    padding: 0.3rem 0.55rem;
+    background: $color-primary;
+    color: #fff;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: $radius-sm;
+  }
+
+  &__body {
+    padding: 1.15rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+    color: $color-muted;
+    font-size: 0.8125rem;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    i {
+      color: $color-primary;
+    }
+  }
+
+  &__title {
+    margin: 0 0 0.65rem;
+    font-size: 1rem;
+
+    a:hover,
+    a:focus-visible {
+      color: $color-primary;
+    }
+  }
+
+  &__excerpt {
+    margin: 0 0 1rem;
+    color: $color-muted;
+    flex: 1;
+  }
+
+  &__more {
+    color: $color-primary;
+    font-weight: 600;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+}
+
+.service-card,
+.why-card {
+  @include card-surface;
+  height: 100%;
+  text-align: center;
+  padding: 2rem 1.25rem;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-float;
+  }
+
+  h3 {
+    margin: 0 0 0.65rem;
+    font-size: 1.05rem;
+  }
+
+  p {
+    margin: 0;
+    color: $color-muted;
+  }
+}
+
+.service-card__icon,
+.why-card__icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1.15rem;
+  border-radius: 50%;
+  background: rgba(0, 97, 223, 0.08);
+  color: $color-primary;
+  font-size: 1.65rem;
+  @include flex-center;
+  transition: $transition-smooth;
+}
+
+.service-card:hover .service-card__icon,
+.why-card:hover .why-card__icon {
+  background: $color-primary;
+  color: #fff;
+}
+
+.testimonial-card {
+  @include card-surface;
+  padding: 2rem 1.5rem;
+  height: 100%;
+
+  &__quote {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(0, 97, 223, 0.1);
+    color: $color-primary;
+    @include flex-center;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  blockquote {
+    margin: 0;
+  }
+
+  p {
+    margin: 0 0 1.35rem;
+    color: $color-dark;
+    font-size: 0.95rem;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+
+    img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    cite {
+      display: block;
+      font-style: normal;
+      font-weight: 700;
+      color: $color-dark;
+    }
+
+    span {
+      color: $color-muted;
+      font-size: 0.8125rem;
+    }
+  }
+}

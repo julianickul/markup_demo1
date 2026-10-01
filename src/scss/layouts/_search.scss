@@ -1,0 +1,50 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.search-bar {
+  position: relative;
+  z-index: 5;
+  margin-top: -3.5rem;
+  margin-bottom: 1rem;
+
+  &__form {
+    background: #fff;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    box-shadow: $shadow-float;
+    padding: 1.25rem;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: $color-dark;
+    font-weight: 600;
+    font-size: 0.8125rem;
+  }
+
+  &__field {
+    position: relative;
+
+    i {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $color-primary;
+      pointer-events: none;
+    }
+
+    .form-control {
+      padding-left: 2.35rem;
+    }
+  }
+
+  &__submit {
+    margin-top: 1.45rem;
+
+    @include respond-to(desktop) {
+      margin-top: 0;
+    }
+  }
+}

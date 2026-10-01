@@ -1,0 +1,27 @@
+include _mixins
+
+-
+  var agents = [
+    { name: 'Robert Fox', role: 'Lead Designer', image: 'assets/img/agents/agent-1.jpg' },
+    { name: 'Floyd Miles', role: 'CEO, Director', image: 'assets/img/agents/agent-2.jpg' },
+    { name: 'Albert Flores', role: 'Marketer', image: 'assets/img/agents/agent-3.jpg' },
+    { name: 'Darlene Robertson', role: 'Project Manager', image: 'assets/img/agents/agent-4.jpg' },
+    { name: 'Savannah Nguyen', role: 'Lead Developer', image: 'assets/img/agents/agent-5.jpg' }
+  ]
+
+section.agents#agents(aria-labelledby="agents-title")
+  .container
+    .section-head.text-center.animate-on-scroll
+      p.section-eyebrow Team
+      h2.section-title#agents-title Meet Our Agents
+      p.section-text Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    .agents__track(data-carousel role="region" aria-roledescription="carousel" aria-label="Agents")
+      .agents__viewport#agents-viewport
+        .agents__list
+          each agent in agents
+            .agents__item
+              +agent-card(agent)
+      button.agents__nav.agents__nav--prev(type="button" aria-label="Previous agents" aria-controls="agents-viewport" data-carousel-prev)
+        i.bi.bi-chevron-left(aria-hidden="true")
+      button.agents__nav.agents__nav--next(type="button" aria-label="Next agents" aria-controls="agents-viewport" data-carousel-next)
+        i.bi.bi-chevron-right(aria-hidden="true")

@@ -1,0 +1,57 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-dark;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.section-eyebrow {
+  margin: 0 0 0.5rem;
+  color: $color-primary;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.section-title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+}
+
+.section-text {
+  margin: 0 auto;
+  max-width: 540px;
+  color: $color-muted;
+}
+
+.section-head {
+  margin-bottom: 2.5rem;
+
+  @include respond-to(desktop) {
+    margin-bottom: 3rem;
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+  }
+}

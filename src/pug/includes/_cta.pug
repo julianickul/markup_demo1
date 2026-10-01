@@ -1,0 +1,14 @@
+section.cta#cta(aria-labelledby="cta-title")
+  .cta__bg(data-parallax data-parallax-speed="0.25" aria-hidden="true")
+    img(src="assets/img/hero/hero-3.jpg" alt="")
+  .cta__overlay(aria-hidden="true")
+  .container
+    .cta__inner.animate-on-scroll
+      .cta__copy
+        p.section-eyebrow Join Houzing
+        h2.section-title#cta-title Become a Real Estate Agent
+        p We only work with the best companies around the globe.
+      form.cta__form(action="#" method="post" aria-label="Subscribe to Houzing")
+        label.visually-hidden(for="cta-email") Email address
+        input#cta-email.form-control(type="email" name="email" placeholder="Enter your email" autocomplete="email" inputmode="email" required aria-required="true")
+        button.btn.btn-light(type="submit") Subscribe

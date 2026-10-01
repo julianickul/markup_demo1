@@ -1,0 +1,37 @@
+section.search-bar#search
+  .container
+    form.search-bar__form.animate-on-scroll(action="#" method="get" role="search" aria-label="Property search")
+      .row.g-3.align-items-end
+        .col-md-6.col-lg-3
+          label.search-bar__label(for="search-address") Address
+          .search-bar__field
+            i.bi.bi-geo-alt(aria-hidden="true")
+            input#search-address.form-control(type="text" name="address" placeholder="Enter an address, city or ZIP" autocomplete="street-address")
+        .col-md-6.col-lg-2
+          label.search-bar__label(for="search-type") Type
+          select#search-type.form-select(name="type")
+            option(value="") Property Type
+            option Apartment
+            option Condo
+            option Studio
+            option Villa
+        .col-6.col-lg-2
+          label.search-bar__label(for="search-beds") Bedrooms
+          select#search-beds.form-select(name="beds")
+            option(value="") Any
+            option 1+
+            option 2+
+            option 3+
+            option 4+
+        .col-6.col-lg-2
+          label.search-bar__label(for="search-price") Price
+          select#search-price.form-select(name="price")
+            option(value="") Any
+            option $500 – $1,500
+            option $1,500 – $3,000
+            option $3,000 – $7,500
+            option $7,500+
+        .col-lg-3
+          button.btn.btn-primary.w-100.search-bar__submit(type="submit")
+            i.bi.bi-search(aria-hidden="true")
+            | Search

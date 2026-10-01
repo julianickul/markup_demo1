@@ -1,0 +1,25 @@
+section.hero#hero(aria-labelledby="hero-title")
+  .hero__bg(data-parallax data-parallax-speed="0.35" aria-hidden="true")
+    img(src="assets/img/hero/hero-1.jpg" alt="")
+  .hero__overlay(aria-hidden="true")
+  .container
+    .row.align-items-center.hero__row
+      .col-lg-7
+        .hero__content.animate-on-scroll
+          p.hero__eyebrow It's great to be home!
+          h1.hero__title#hero-title Find Your Perfect Home
+          p.hero__text Browse curated listings from trusted agents. Buy, rent, or explore neighborhoods with confidence.
+          .hero__tabs(role="radiogroup" aria-label="Listing type")
+            button.hero__tab.is-active(type="button" role="radio" aria-checked="true" tabindex="0" data-tab="buy") Buy
+            button.hero__tab(type="button" role="radio" aria-checked="false" tabindex="-1" data-tab="rent") Rent
+            button.hero__tab(type="button" role="radio" aria-checked="false" tabindex="-1" data-tab="sold") Sold
+          a.btn.btn-primary.btn-lg.hero__cta(href="#featured")
+            | Browse Properties
+            i.bi.bi-arrow-right(aria-hidden="true")
+      .col-lg-5.d-none.d-lg-block
+        .hero__float.animate-on-scroll(data-parallax data-parallax-speed="-0.15")
+          .hero__float-card
+            img(src="assets/img/hero/hero-2.jpg" alt="Bright living room of Skyper Pool Apartment")
+            .hero__float-meta
+              strong Skyper Pool Apartment
+              span $5,250/mo

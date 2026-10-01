@@ -1,0 +1,86 @@
+@import 'variables';
+@mixin respond-to($name) {
+  @if $name == mobile {
+    @media (min-width: 320px) { @content; }
+  } @else if $name == tablet {
+    @media (min-width: 768px) { @content; }
+  } @else if $name == desktop {
+    @media (min-width: 992px) { @content; }
+  } @else if $name == wide {
+    @media (min-width: 1200px) { @content; }
+  }
+}
+
+@mixin section-space {
+  padding-block: 4rem;
+
+  @include respond-to(desktop) {
+    padding-block: 5.5rem;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card-surface {
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  transition: $transition-smooth;
+}
+
+@mixin carousel-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: 1px solid $color-border;
+  border-radius: 50%;
+  background: $color-bg;
+  color: $color-dark;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  transition: $transition-smooth;
+  box-shadow: $shadow-card;
+
+  &:hover,
+  &:focus-visible {
+    background: $color-primary;
+    border-color: $color-primary;
+    color: #fff;
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+    background: $color-bg;
+    border-color: $color-border;
+    color: $color-muted;
+  }
+
+  &--prev {
+    left: -8px;
+  }
+
+  &--next {
+    right: -8px;
+  }
+
+  @include respond-to(desktop) {
+    &--prev {
+      left: -12px;
+    }
+
+    &--next {
+      right: -12px;
+    }
+  }
+}

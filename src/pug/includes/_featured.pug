@@ -1,0 +1,28 @@
+include _mixins
+
+-
+  var properties = [
+    { title: 'New Apartment Nice Wiew', address: 'Quincy St, Brooklyn, NY, USA', beds: 4, baths: 5, garage: 1, sqft: '1200', price: '$7,500/mo', oldPrice: '$2,800/mo', status: 'FOR SALE', featured: true, photos: 22, videos: 3, image: 'assets/img/properties/prop-1.jpg' },
+    { title: 'Skyper Pool Apartment', address: '112 Glenwood Ave Hyde Park, Boston, MA', beds: 4, baths: 5, garage: 1, sqft: '1200', price: '$5,250/mo', oldPrice: '$2,800/mo', status: 'FOR SALE', featured: true, photos: 22, videos: 3, image: 'assets/img/properties/prop-2.jpg' },
+    { title: 'New Caledonian Wharf', address: '251 SW 6th Ln Florida City, FL', beds: 4, baths: 5, garage: 1, sqft: '1200', price: '$2,300/mo', oldPrice: '$2,800/mo', status: 'FOR SALE', featured: true, photos: 22, videos: 3, image: 'assets/img/properties/prop-3.jpg' },
+    { title: 'Spacious Family Home', address: '4 W 21st St Flatiron District, New York, NY', beds: 4, baths: 5, garage: 1, sqft: '1200', price: '$1,900/mo', oldPrice: '$2,800/mo', status: 'FOR RENT', featured: true, photos: 22, videos: 3, image: 'assets/img/properties/prop-4.jpg' },
+    { title: 'Diamond Manor Apartment', address: 'Quincy St, Brooklyn, NY, USA', beds: 3, baths: 2, garage: 1, sqft: '980', price: '$4,200/mo', oldPrice: null, status: 'FOR SALE', featured: false, photos: 18, videos: 2, image: 'assets/img/properties/prop-5.jpg' },
+    { title: 'Gorgeous Villa Bay', address: 'Miami Beach, FL, USA', beds: 5, baths: 4, garage: 2, sqft: '2100', price: '$9,800/mo', oldPrice: null, status: 'FOR SALE', featured: true, photos: 30, videos: 4, image: 'assets/img/properties/prop-6.jpg' }
+  ]
+
+section.featured#featured(aria-labelledby="featured-title")
+  .container
+    .section-head.text-center.animate-on-scroll
+      p.section-eyebrow Featured
+      h2.section-title#featured-title Discover Our Featured Listings
+      p.section-text Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    .featured__tabs.animate-on-scroll(role="radiogroup" aria-label="Filter listings")
+      button.featured__tab.is-active(type="button" role="radio" aria-checked="true" tabindex="0" data-filter="all") All
+      button.featured__tab(type="button" role="radio" aria-checked="false" tabindex="-1" data-filter="sale") Sale
+      button.featured__tab(type="button" role="radio" aria-checked="false" tabindex="-1" data-filter="rent") Rent
+      button.featured__tab(type="button" role="radio" aria-checked="false" tabindex="-1" data-filter="apartment") Apartments
+    p#featured-status.visually-hidden(aria-live="polite" aria-atomic="true")
+    .row.g-4#featured-grid(role="list" aria-label="Featured listings")
+      each item in properties
+        .col-md-6.col-xl-4(role="listitem" data-category=item.status === 'FOR RENT' ? 'rent' : 'sale')
+          +property-card(item)

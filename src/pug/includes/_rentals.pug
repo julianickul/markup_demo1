@@ -1,0 +1,26 @@
+include _mixins
+
+-
+  var rentals = [
+    { title: 'New Apartment Nice Wiew', address: 'Quincy St, Brooklyn, NY, USA', beds: 4, baths: 5, garage: 1, sqft: '1200', price: '$7,500/mo', oldPrice: '$2,800/mo', status: 'FOR RENT', featured: true, photos: 22, videos: 3, image: 'assets/img/properties/prop-7.jpg' },
+    { title: 'Skyper Pool Apartment', address: 'Quincy St, Brooklyn, NY, USA', beds: 4, baths: 5, garage: 1, sqft: '1200', price: '$5,250/mo', oldPrice: '$2,800/mo', status: 'FOR RENT', featured: true, photos: 22, videos: 3, image: 'assets/img/properties/prop-8.jpg' },
+    { title: 'New Caledonian Wharf', address: 'Quincy St, Brooklyn, NY, USA', beds: 4, baths: 5, garage: 1, sqft: '1200', price: '$2,300/mo', oldPrice: '$2,800/mo', status: 'FOR RENT', featured: true, photos: 22, videos: 3, image: 'assets/img/properties/prop-3.jpg' },
+    { title: 'Spacious Family Home', address: 'Quincy St, Brooklyn, NY, USA', beds: 4, baths: 5, garage: 1, sqft: '1200', price: '$1,900/mo', oldPrice: '$2,800/mo', status: 'FOR RENT', featured: true, photos: 22, videos: 3, image: 'assets/img/properties/prop-4.jpg' }
+  ]
+
+section.rentals#rentals(aria-labelledby="rentals-title")
+  .container
+    .section-head.text-center.animate-on-scroll
+      p.section-eyebrow For Rent
+      h2.section-title#rentals-title Recent Properties for Rent
+      p.section-text Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    .rentals__track(data-carousel role="region" aria-roledescription="carousel" aria-label="Properties for rent")
+      .rentals__viewport#rentals-viewport
+        .rentals__list
+          each item in rentals
+            .rentals__item
+              +property-card(item)
+      button.rentals__nav.rentals__nav--prev(type="button" aria-label="Previous rentals" aria-controls="rentals-viewport" data-carousel-prev)
+        i.bi.bi-chevron-left(aria-hidden="true")
+      button.rentals__nav.rentals__nav--next(type="button" aria-label="Next rentals" aria-controls="rentals-viewport" data-carousel-next)
+        i.bi.bi-chevron-right(aria-hidden="true")

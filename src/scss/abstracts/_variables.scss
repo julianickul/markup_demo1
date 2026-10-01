@@ -1,0 +1,36 @@
+// Breakpoints
+$breakpoints: (
+  mobile: 320px,
+  tablet: 768px,
+  desktop: 992px,
+  wide: 1200px,
+);
+
+// Houzing palette
+$color-primary: #0061df;
+$color-primary-dark: #234dd4;
+$color-dark: #0d263b;
+$color-text: #0d263b;
+$color-muted: #5c5c5c;
+$color-body: #5c5c5c;
+$color-border: #e6e9ec;
+$color-bg: #ffffff;
+$color-bg-soft: #f6f8f9;
+$color-danger: #e44548;
+$color-success: #6cbf78;
+
+$font-primary: 'DM Sans', system-ui, sans-serif;
+
+$container-max: 1470px;
+$container-pad: 16px;
+
+$radius-sm: 3px;
+$radius-md: 6px;
+$radius-lg: 12px;
+$radius-pill: 999px;
+
+$shadow-card: 0 0 10px rgba(13, 38, 59, 0.08);
+$shadow-float: 0 10px 40px rgba(13, 38, 59, 0.12);
+$transition-smooth: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+$header-height: 80px;

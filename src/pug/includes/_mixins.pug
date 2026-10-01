@@ -1,0 +1,87 @@
+mixin property-card(item)
+  article.property-card.animate-on-scroll
+    .property-card__media
+      img.property-card__img(src=item.image alt="" loading="lazy")
+      if item.featured
+        span.property-card__badge.property-card__badge--featured FEATURED
+      span.property-card__badge.property-card__badge--status= item.status
+      .property-card__meta
+        span
+          i.bi.bi-camera(aria-hidden="true")
+          span.visually-hidden Photos:
+          | #{item.photos}
+        span
+          i.bi.bi-film(aria-hidden="true")
+          span.visually-hidden Videos:
+          | #{item.videos}
+    .property-card__body
+      h3.property-card__title
+        a(href="#")= item.title
+      p.property-card__address
+        i.bi.bi-geo-alt(aria-hidden="true")
+        | #{item.address}
+      ul.property-card__features
+        li
+          i.bi.bi-door-closed(aria-hidden="true")
+          | #{item.beds} Beds
+        li
+          i.bi.bi-droplet(aria-hidden="true")
+          | #{item.baths} Bath
+        li
+          i.bi.bi-car-front(aria-hidden="true")
+          | #{item.garage} Garage
+        li
+          i.bi.bi-arrows-angle-expand(aria-hidden="true")
+          | #{item.sqft} Sq Ft
+    .property-card__footer
+      .property-card__price
+        if item.oldPrice
+          del
+            span.visually-hidden Previous price
+            | #{item.oldPrice}
+        strong
+          span.visually-hidden Current price
+          | #{item.price}
+      a.property-card__link(href="#" aria-label=`View details for ${item.title}`) View Details
+
+mixin agent-card(agent)
+  article.agent-card.animate-on-scroll
+    .agent-card__photo
+      img(src=agent.image alt="" loading="lazy")
+    h3.agent-card__name= agent.name
+    p.agent-card__role= agent.role
+    .agent-card__social
+      a(href="#" aria-label=`Facebook, ${agent.name}`)
+        i.bi.bi-facebook(aria-hidden="true")
+      a(href="#" aria-label=`Twitter, ${agent.name}`)
+        i.bi.bi-twitter-x(aria-hidden="true")
+      a(href="#" aria-label=`Instagram, ${agent.name}`)
+        i.bi.bi-instagram(aria-hidden="true")
+
+mixin city-card(city)
+  a.city-card.animate-on-scroll(href="#")
+    img.city-card__img(src=city.image alt="" loading="lazy")
+    .city-card__overlay
+      h3.city-card__name= city.name
+      span.city-card__count= city.count
+
+mixin blog-card(post)
+  article.blog-card.animate-on-scroll
+    a.blog-card__media(href="#" tabindex="-1" aria-hidden="true")
+      img(src=post.image alt="" loading="lazy")
+      span.blog-card__tag= post.tag
+    .blog-card__body
+      .blog-card__meta
+        span
+          i.bi.bi-person(aria-hidden="true")
+          span.visually-hidden Author
+          | #{post.author}
+        span
+          i.bi.bi-calendar3(aria-hidden="true")
+          time(datetime="2021-04-06")= post.date
+      h3.blog-card__title
+        a(href="#")= post.title
+      p.blog-card__excerpt= post.excerpt
+      a.blog-card__more(href="#")
+        | Read More
+        span.visually-hidden  about #{post.title}

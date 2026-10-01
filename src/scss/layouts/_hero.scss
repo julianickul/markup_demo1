@@ -1,0 +1,130 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.hero {
+  position: relative;
+  min-height: clamp(520px, 78vh, 720px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+
+  &__bg {
+    position: absolute;
+    inset: -8% 0;
+    z-index: 0;
+    will-change: transform;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(90deg, rgba(13, 38, 59, 0.82) 0%, rgba(13, 38, 59, 0.55) 48%, rgba(13, 38, 59, 0.28) 100%);
+  }
+
+  &__row {
+    position: relative;
+    z-index: 2;
+    padding-block: 5rem 7rem;
+  }
+
+  &__eyebrow {
+    margin: 0 0 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+  }
+
+  &__title {
+    margin: 0 0 1rem;
+    color: #fff;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    max-width: 12ch;
+  }
+
+  &__text {
+    margin: 0 0 1.5rem;
+    max-width: 34rem;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1rem;
+  }
+
+  &__tabs {
+    display: inline-flex;
+    gap: 0.35rem;
+    margin-bottom: 1.35rem;
+    padding: 0.25rem;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: $radius-sm;
+    backdrop-filter: blur(6px);
+  }
+
+  &__tab {
+    border: 0;
+    background: transparent;
+    color: #fff;
+    padding: 0.55rem 1.1rem;
+    border-radius: $radius-sm;
+    font-weight: 600;
+    cursor: pointer;
+    transition: $transition-smooth;
+
+    &.is-active,
+    &:hover,
+    &:focus-visible {
+      background: $color-primary;
+    }
+
+    &:focus-visible {
+      outline-offset: 2px;
+    }
+  }
+
+  &__float {
+    will-change: transform;
+  }
+
+  &__float-card {
+    position: relative;
+    margin-left: auto;
+    max-width: 360px;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-float;
+    border: 4px solid rgba(255, 255, 255, 0.35);
+
+    img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+  }
+
+  &__float-meta {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: $radius-md;
+    background: rgba(255, 255, 255, 0.95);
+    color: $color-dark;
+
+    strong {
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    span {
+      color: $color-primary;
+      font-weight: 700;
+    }
+  }
+}

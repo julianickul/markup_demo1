@@ -1,0 +1,29 @@
+include _mixins
+
+-
+  var cities = [
+    { name: 'Los Angeles', count: '15 Properties', image: 'assets/img/cities/city-1.jpg' },
+    { name: 'London', count: '23 Properties', image: 'assets/img/cities/city-2.jpg' },
+    { name: 'New York', count: '7543 Properties', image: 'assets/img/cities/city-3.jpg' },
+    { name: 'Paris', count: '821 Properties', image: 'assets/img/cities/city-4.jpg' },
+    { name: 'Florida', count: '411 Properties', image: 'assets/img/cities/city-5.jpg' },
+    { name: 'Miami', count: '42 Properties', image: 'assets/img/cities/city-6.jpg' },
+    { name: 'Istanbul', count: '392 Properties', image: 'assets/img/cities/city-7.jpg' }
+  ]
+
+section.cities#cities(aria-labelledby="cities-title")
+  .container
+    .section-head.text-center.animate-on-scroll
+      p.section-eyebrow Locations
+      h2.section-title#cities-title Explore Cities
+      p.section-text Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    .cities__track(data-carousel role="region" aria-roledescription="carousel" aria-label="Cities")
+      .cities__viewport#cities-viewport
+        .cities__list
+          each city in cities
+            .cities__item
+              +city-card(city)
+      button.cities__nav.cities__nav--prev(type="button" aria-label="Previous cities" aria-controls="cities-viewport" data-carousel-prev)
+        i.bi.bi-chevron-left(aria-hidden="true")
+      button.cities__nav.cities__nav--next(type="button" aria-label="Next cities" aria-controls="cities-viewport" data-carousel-next)
+        i.bi.bi-chevron-right(aria-hidden="true")
